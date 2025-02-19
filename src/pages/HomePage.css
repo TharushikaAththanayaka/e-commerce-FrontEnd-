@@ -1,0 +1,82 @@
+/* General reset for margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Full page container */
+  .home-container {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: background-image 1s ease-in-out;
+  }
+  
+  /* Caption container */
+  .caption-container {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  
+  /* Caption styles */
+  .caption {
+    font-size: 4rem; /* Larger font size */
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Description styles */
+  .description {
+    font-size: 2rem; /* Larger font size */
+    margin-bottom: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .part-dec{
+    font-size: 1.5rem;
+  }
+  
+  /* Explore button styles */
+  .explore-btn {
+    background-color: #2e8b57;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    margin-top: 40px;
+  }
+  
+  .explore-btn:hover {
+    background-color: #3b9b6a;
+  }
+  
+  /* Responsive styling for smaller screens */
+  @media (max-width: 768px) {
+    .caption {
+      font-size: 2.5rem; /* Adjust font size for smaller screens */
+    }
+  
+    .description {
+      font-size: 2.0rem; /* Adjust font size for smaller screens */
+    }
+  
+    .explore-btn {
+      font-size: 1rem; /* Adjust font size for smaller screens */
+      padding: 8px 18px;
+    }
+  }
+  

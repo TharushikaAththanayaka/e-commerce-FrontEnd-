@@ -1,0 +1,114 @@
+/* CartPopup.css */
+.cart-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .cart-popup {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 600px; /* Adjusted width for a more spacious design */
+    max-height: 80%; /* Max height to prevent excessive overflow */
+    text-align: left;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for a professional feel */
+  }
+  
+  .cart-popup .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .cart-popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+  }
+  
+  .cart-popup .popup-product-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .cart-popup .product-details-table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+    overflow-x: auto; /* Ensures horizontal scrolling if necessary */
+  }
+  
+  .cart-popup .product-details-table th,
+  .cart-popup .product-details-table td {
+    padding: 10px;
+    /* border: 1px solid #e0e0e0; */
+    text-align: left;
+  }
+  
+  .cart-popup .product-details-table th {
+    /* background-color: #f7f7f7; */
+    font-weight: 600;
+     color: #2e8b57; 
+  }
+  
+  .cart-popup .product-details-table td {
+    color: #333;
+  }
+  
+  .cart-popup .remove-btn,
+  .cart-popup .checkout-btn {
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cart-popup .remove-btn {
+    background-color: #dc3545;
+    margin-top: 10px;
+  }
+  
+  .cart-popup .remove-btn:hover,
+  .cart-popup .checkout-btn:hover {
+    background-color: #ab5b63; /* Darker green for remove button on hover */
+  }
+  
+  .cart-popup .checkout-btn {
+    background-color: #218838; /* Blue color for checkout button */
+    margin-left: 20px; /* Space between the buttons */
+    margin-top: 10px;
+  }
+  
+  .cart-popup .checkout-btn:hover {
+    background-color: #6cad7a; /* Darker blue for hover */
+  }
+  
+  .cart-popup .buttons-container {
+    display: flex;
+    justify-content: space-between; /* Space between the buttons */
+    margin-top: 20px;
+  }
+  
