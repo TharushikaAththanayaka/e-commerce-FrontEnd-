@@ -66,12 +66,13 @@
   
   .cart-popup .product-details-table th {
     /* background-color: #f7f7f7; */
-    font-weight: 600;
+    font-weight: 1200;
      color: #2e8b57; 
   }
   
   .cart-popup .product-details-table td {
     color: #333;
+    font-weight: bold;
   }
   
   .cart-popup .remove-btn,

@@ -1,9 +1,18 @@
-// CartPopup.js
-import React from 'react';
-import './CartPopup.css'; // Import the updated CSS file
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./CartPopup.css";
 
-const CartPopup = ({ isVisible, selectedProduct, quantity, totalPrice, onClose, onRemove, onCheckout }) => {
+const CartPopup = ({ isVisible, selectedProduct, quantity, totalPrice, onClose, onRemove }) => {
+  const navigate = useNavigate();
+
   if (!isVisible) return null;
+
+  // Navigate to checkout page with cart data
+  const handleCheckout = () => {
+    navigate("/checkout", {
+      state: { cartItems: [{ ...selectedProduct, quantity }] }, // Pass cart items via state
+    });
+  };
 
   return (
     <div className="cart-popup-overlay">
@@ -12,7 +21,6 @@ const CartPopup = ({ isVisible, selectedProduct, quantity, totalPrice, onClose, 
         <div className="cart-popup-content">
           <img src={selectedProduct.image} alt={selectedProduct.name} className="popup-product-image" />
           
-          {/* Table for product details */}
           <table className="product-details-table">
             <tbody>
               <tr>
@@ -32,7 +40,7 @@ const CartPopup = ({ isVisible, selectedProduct, quantity, totalPrice, onClose, 
 
           <div>
             <button className="remove-btn" onClick={onRemove}>Remove</button>
-            <button className="checkout-btn" onClick={onCheckout}>Checkout</button>
+            <button className="checkout-btn" onClick={handleCheckout}>Checkout</button>
           </div>
         </div>
       </div>
