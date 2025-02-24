@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./CheckoutPage.css";
-import visaLogo from "../assests/visa.png"; // Ensure the path is correct
+import visaLogo from "../assests/visa.png"; 
 import masterLogo from "../assests/master.png";
 import amexLogo from "../assests/amex.png";
 
-const CheckoutPage = ({ onRemove, onProceedToPayment }) => {
+const CheckoutPage = ({ onProceedToPayment }) => {
   const location = useLocation();
-  const cartItems = location.state?.cartItems || []; // Get cart items from navigation state
+  const initialCartItems = location.state?.cartItems || [];
+  const [cartItems, setCartItems] = useState(initialCartItems);
 
   // Calculate total price
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
+  // Remove item from cart
+  const handleRemove = (id) => {
+    const updatedCart = cartItems.filter((item) => item.id !== id);
+    setCartItems(updatedCart); // Update state
+  };
 
   // Card selection state
   const [selectedCard, setSelectedCard] = useState("Visa");
@@ -21,7 +28,7 @@ const CheckoutPage = ({ onRemove, onProceedToPayment }) => {
 
   // Handle form submission
   const handlePayment = (event) => {
-    event.preventDefault(); // Prevents form submission from reloading the page
+    event.preventDefault(); 
     if (onProceedToPayment) {
       onProceedToPayment();
     }
@@ -113,7 +120,7 @@ const CheckoutPage = ({ onRemove, onProceedToPayment }) => {
         </form>
       </div>
 
-      {/* Cart Items */}
+
       <div className="cart-items">
         <h2>Your Cart</h2>
         {cartItems.length === 0 ? (
@@ -131,10 +138,7 @@ const CheckoutPage = ({ onRemove, onProceedToPayment }) => {
                       <p>Price: LKR {item.price.toFixed(2)}</p>
                     </div>
                   </div>
-                  <button
-                    className="remove-button"
-                    onClick={() => onRemove && onRemove(item.id)}
-                  >
+                  <button className="remove-button" onClick={() => handleRemove(item.id)}>
                     Remove
                   </button>
                 </li>
